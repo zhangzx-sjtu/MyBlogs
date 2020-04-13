@@ -1,16 +1,16 @@
 # Site settings
-title:          Machine Learning Blogs
-description:    "Minimal Jekyll theme for storytellers"
-url:            "https://chesterhow.github.io"
+title:          Dive into ML
+description:    "Machine Learning Blogs"
+url:            "https://zhangzx-sjtu.github.io/MyBlogs"
 
 # Google Analytics
 google_analytics: UA—XXXXXXXX-X
 
 # Author
 author:
-  name:         Chester How
-  url:          https://chester.how
-  email:        chesterhow@gmail.com
+  name:         Zixuan Zhang
+  url:          https://zhangzx-sjtu.github.io
+  email:        zhangzx.sjtu@gmail.com
 
 # Build settings
 markdown:       kramdown
