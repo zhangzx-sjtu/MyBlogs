@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Uncovering Causal Graph Topologies via Discriminating Adaptation Speed on Interventions"
+title:  "Uncovering Causal Structures via Discriminating Adaptation Speed"
 author: "Zixuan"
 comments: true
 ---
