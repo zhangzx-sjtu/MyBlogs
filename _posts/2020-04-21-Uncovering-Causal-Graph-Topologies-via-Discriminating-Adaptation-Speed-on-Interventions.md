@@ -4,6 +4,7 @@ title:  "Uncovering Causal Graph Topologies via Discriminating Adaptation Speed 
 author: "Zixuan"
 comments: true
 ---
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"></script>
 
 Some my personal understandings of *Prof. Yoshua Bengio's* ICLR 2020 paper: [A Meta-Transfer Objective for Learning to Disentangle Causal Mechanisms](https://openreview.net/pdf?id=ryxWIgBFPS).
 
