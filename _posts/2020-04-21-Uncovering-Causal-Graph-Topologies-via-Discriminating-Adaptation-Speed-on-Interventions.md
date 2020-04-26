@@ -17,7 +17,7 @@ $$
 \end{align}
 $$
 
-It is widely accepted that symmetrical *correlation* does not imply *causation", for example, the *temperatures* and the *numerical readings from thermometers* are strongly correlated. Nevertheless, we could only state that the thermometer readings are caused by temperatures, while an inversed statement is unreasonable.
+It is widely accepted that symmetrical *correlation* does not imply *causation*, for example, the *temperatures* and the *numerical readings from thermometers* are strongly correlated. Nevertheless, we could only state that the thermometer readings are caused by temperatures, while an inversed statement is unreasonable.
 
 Machine learning models and algorithms are simply focusing on correlations. For example, if random variables $X$ and $Y$ denote the *altitude of a geographical location* and its *annually average temperature* respectively, then given a dataset $D=\lbrace{(x_i,y_i)\rbrace}_{i=1}^{N}$ drawn from $X$ and $Y$, we are able to build machine learning models $f(\cdot\rightarrow\cdot \mid \theta)$ in both directions (where the dot represents either $X$ or $Y$), training the models on $D$ and obtaining excellent prediction accuracies. However, in principle, only altitude can affect temperature, while the temperature has no chance to alter inherent geographical features. As a result, training a model to predict $X$ based on provided $Y$ is merely "curve-fitting"s and bears no physical meanings despite the excellent prediction accuracy.
 
