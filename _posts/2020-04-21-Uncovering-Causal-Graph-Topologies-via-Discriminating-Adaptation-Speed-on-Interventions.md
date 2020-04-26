@@ -5,11 +5,11 @@ author: "Zixuan"
 comments: true
 ---
 
-Some my personal understandings of *Prof. Yoshua Bengio's* ICLR 2020 paper: [A Meta-Transfer Objective for Learning to Disentangle Causal Mechanisms](https://openreview.net/pdf?id=ryxWIgBFPS).
+Some of my personal understandings of *Prof. Yoshua Bengio's* ICLR 2020 paper: [A Meta-Transfer Objective for Learning to Disentangle Causal Mechanisms](https://openreview.net/pdf?id=ryxWIgBFPS).
 
 ### Correlation-Based Machine Learning
 
-Machine learning technologies are based on the concept of correlation modeling. The most basic way to modeling the correlation between two random variables $X$ and $Y$ could be the Pearson correlation coefficient $\rho_{X,Y}$, which is defined as the devision of covariance and standard deviation products:
+Machine learning technologies are based on correlation modeling. The most basic way to characterize the correlation between two random variables $X$ and $Y$ could be the Pearson correlation coefficient $\rho_{X,Y}$, which is defined as the devision of covariance and standard deviation products:
 
 $$
 \begin{align}
@@ -17,13 +17,13 @@ $$
 \end{align}
 $$
 
-Such a coefficient is symmetrical for $X$ and $Y$ and does not indicate any "causations". It is widely accepted that correlation does not imply causation, for example, we can claim that the temperatures and the numerical readings from thermometers are strongly correlated, however, we could only state that the thermometer readings are caused by temperatures while an inversed statement is unreasonable.
+It is widely accepted that symmetrical *correlation* does not imply *causation", for example, the *temperatures* and the *numerical readings from thermometers* are strongly correlated. Nevertheless, we could only state that the thermometer readings are caused by temperatures, while an inversed statement is unreasonable.
 
-It is claimed that machine learning models and algorithms are merely based on correlation modeling. For example, we let random variables $X$ and $Y$ denote the altitude of a geographical location, and its annually average temperature respectively. Given a dataset $D=\lbrace{(x_i,y_i)\rbrace}_{i=1}^{N}$ drawn from $X$ and $Y$, we are actually able to build machine learning models $f(\cdot\rightarrow\cdot \mid \theta)$ in both directions (where the dot represents either $X$ or $Y$), training the models on $D$ and obtaining excellent prediction accuracy. However, in principle, only altitude affects temperatures, while the temperature has no chance to alter inherent geographical features.
+Machine learning models and algorithms are simply focusing on correlations. For example, if random variables $X$ and $Y$ denote the *altitude of a geographical location* and its *annually average temperature* respectively, then given a dataset $D=\lbrace{(x_i,y_i)\rbrace}_{i=1}^{N}$ drawn from $X$ and $Y$, we are able to build machine learning models $f(\cdot\rightarrow\cdot \mid \theta)$ in both directions (where the dot represents either $X$ or $Y$), training the models on $D$ and obtaining excellent prediction accuracies. However, in principle, only altitude can affect temperature, while the temperature has no chance to alter inherent geographical features. As a result, training a model to predict $X$ based on provided $Y$ is merely "curve-fitting"s and bears no physical meanings despite the excellent prediction accuracy.
 
-It is not the reason that we are *not willing to* build a stronger model, which is able to infer the causal relations between objects, but the fact that we are *not capable of*. That is, learning causal relations only based on a tuple dataset $D=\lbrace{(x_i,y_i)\rbrace}_{i=1}^{N}$ is technically impossible. The root cause of such a situation is actually originated from *information loss* during the data collection procedure. We can imagine that such a dataset is collected by dedicated workers, who *first* climb to geographical locations with different locations, and *then* measures the temperature using a thermometer. However, when marking down each record of data into tuples $(x_i,y_i)$, such an observation order, which implies important information of causality, is regrettably discarded.
+It is not we are *not willing to* build a stronger machine learning model to predict causal relations, but the fact is that we are *not capable of* doing so. That is, learning causal relations only based on a tuple dataset $D=\lbrace{(x_i,y_i)\rbrace}_{i=1}^{N}$ is technically impossible. The root cause of such a situation is actually originated from *information loss* during the data collection procedure. We can imagine that such a dataset is collected by dedicated workers, who *first* climb to geographical locations with different locations, and *then* measures the temperature using a thermometer. However, when marking down each record of data into tuples $(x_i,y_i)$, such an observation order that implies important information of causality (i.e. first $X$, then $Y$) is regrettably discarded.
 
-In a statistical point of view, each set of real-world natural phenomena (modeled by random variables $X_1$, $X_2$, $\cdots$, $X_N$) occur in a certain causal order that governed by physical laws. If we want to analyze these phenomena by machine learning approaches, collecting data in the format of $x_1, x_2, \cdots, x_N$ will degenerate a causality-aware conditional distribution product into a causality-free joint distribution. We still take the two-variable problem ($X$: altitude, $Y$: temperature) as the simplest case. Such a distribution degeneration process could be formulated as:
+In a statistical point of view, each set of real-world natural phenomena (modeled by random variables $X_1$, $X_2$, $\cdots$, $X_N$) occur in a certain causal order that governed by physical laws, although information on causality is discarded during data generation. If we want to analyze these phenomena by machine learning approaches, collecting data in the format of $x_1, x_2, \cdots, x_N$ will degenerate a causality-aware conditional distribution product into a causality-free joint distribution. We still take the two-variable problem ($X$: altitude, $Y$: temperature) as the simplest case. Such a distribution degeneration process could be formulated as:
 
 $$
 p(X)\cdot p(Y\mid X)\xrightarrow{degenerate} p(X,Y)
